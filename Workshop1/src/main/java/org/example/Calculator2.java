@@ -16,6 +16,7 @@ public class Calculator2 {
         int d = 365;
         int n = (d * years);
 
+
         System.out.printf("This is the number of days %d ", n );
         double fV = (p*Math.pow(1 +(r / d ), n));
         double totalInterestEarned = (fV - p);
