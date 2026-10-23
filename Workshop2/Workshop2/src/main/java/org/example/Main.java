@@ -33,7 +33,7 @@ public class Main {
 
 
         while (true) {
-            System.out.println(" *******    HOME SCREEN    *******     ");
+            System.out.println(" *******    Library    *******     ");
             System.out.println("1- Show Available Books: ");
             System.out.println("2- Show Checked Out Books: ");
             System.out.println("3- Exit");
@@ -45,7 +45,7 @@ public class Main {
                 System.out.println("Available Books: ");
                 for (Book book : Books) {
                     if (!book.isCheckOut()) {
-                        System.out.println(" Book iD: " + book.getiD() + " IsBn : " + book.getIsBn() + " Title: " + book.getTitle());
+                        System.out.println(" Book iD: "  + book.getiD()  + " isBn: "  + book.getIsBn() + " Title: "  + book.getTitle());
                     }
                 }
                 System.out.println("Enter book ID (0 to go back): ");
