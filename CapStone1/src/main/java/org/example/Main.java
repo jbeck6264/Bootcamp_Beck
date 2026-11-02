@@ -42,9 +42,11 @@ public class Main {
 
             } else if (choice.equalsIgnoreCase("P")) {
                 System.out.println("Make Payment selected.");
+                makePayment(scanner, ledger);
 
             } else if (choice.equalsIgnoreCase("L")){
                 System.out.println("Ledger selected. ");
+                ledgerMenu(scanner, ledger);d
 
             } else if (choice.equalsIgnoreCase("X")){
                 running = false;
@@ -95,15 +97,15 @@ public class Main {
     public static void makePayment(Scanner scanner, Ledger ledger){
 
         System.out.println("""
-███╗   ███╗  ██████╗
-████╗ ████║  ██╔══██╗
-██╔████╔██║  ██████╔╝
-██║╚██╔╝██║  ██╔═══╝
-██║ ╚═╝ ██║  ██║
-╚═╝     ╚═╝  ╚═╝
+    ███╗   ███╗  ██████╗
+    ████╗ ████║  ██╔══██╗
+    ██╔████╔██║  ██████╔╝
+    ██║╚██╔╝██║  ██╔═══╝
+    ██║ ╚═╝ ██║  ██║
+    ╚═╝     ╚═╝  ╚═╝
 
-     MAKE PAYMENT
-""");
+        MAKE PAYMENT
+    """);
 
         System.out.println("Enter Description:");
         String description = scanner.nextLine();
