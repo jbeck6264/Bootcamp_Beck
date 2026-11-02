@@ -149,8 +149,29 @@ public class Main {
             System.out.println("P) Payments");
             System.out.println("R) Reports");
             System.out.println("H) Home");
-            System.out.println("Choose an option: " +
-                    "");
+            System.out.println("Choose an option: ");
+
+            String choice = scanner.nextLine();
+
+            if (choice.equalsIgnoreCase("A")){
+                ledger.showAll();
+
+            }else if (choice.equalsIgnoreCase("D")){
+                ledger.showPayments();
+
+            }else if (choice.equalsIgnoreCase("P")){
+                ledger.showPayments();
+
+            }else if (choice.equalsIgnoreCase("R")){
+                System.out.println("Report coming soon!");
+
+            }else if (choice.equalsIgnoreCase("H")){
+                inLedger = false;
+
+            } else {
+                System.out.println("Invalid option.");
+            }
+
         }
     }
 }

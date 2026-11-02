@@ -121,7 +121,18 @@ public class Ledger {
             }
         }
     }
+
+    public void showAll() {
+
+        System.out.println("\n===== All Transactions =====");
+        for (int i = loadTransactions.size() - 1; i>=0; i--) {
+            Transaction transaction = loadTransactions.get(i);
+
+            transaction.display();
+        }
+    }
 }
+
 
 
 
