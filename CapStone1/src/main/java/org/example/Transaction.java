@@ -40,8 +40,8 @@ public class Transaction {
         return date + "|" + time + "|" + description + "|" +
                 vendor + "|" + amount;
     }
-    public void display(){
-        System.out.println(date + "|" + time + "|"
-        + description + "|" + vendor + "| $" + amount);
+    public void display() {
+        System.out.printf("%-12s %-12s %-22s %-18s $%.2f%n",
+                date, time, description, vendor, amount);
     }
 }

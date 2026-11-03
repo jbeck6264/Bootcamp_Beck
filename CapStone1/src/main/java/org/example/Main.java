@@ -46,7 +46,7 @@ public class Main {
 
             } else if (choice.equalsIgnoreCase("L")){
                 System.out.println("Ledger selected. ");
-                ledgerMenu(scanner, ledger);d
+                ledgerMenu(scanner, ledger);
 
             } else if (choice.equalsIgnoreCase("X")){
                 running = false;
@@ -63,13 +63,13 @@ public class Main {
     public static void addDeposit(Scanner scanner, Ledger ledger){
 
         System.out.println("""
-      █████╗  ██████╗
-     ██╔══██╗ ██╔══██╗
-     ███████║ ██║  ██║
-     ██╔══██║ ██║  ██║
-     ██║  ██║ ██████╔╝
-     ╚═╝  ╚═╝ ╚═════╝
-       ADD DEPOSIT
+          █████╗  ██████╗
+         ██╔══██╗ ██╔══██╗
+         ███████║ ██║  ██║
+         ██╔══██║ ██║  ██║
+         ██║  ██║ ██████╔╝
+         ╚═╝  ╚═╝ ╚═════╝
+      A D D    D E P O S I T
      """);
         System.out.println("Enter Description: ");
         String description = scanner.nextLine();
@@ -86,7 +86,8 @@ public class Main {
         }
         String date = java.time.LocalDate.now().toString();
 
-        String time = java.time.LocalTime.now().toString();
+        String time = java.time.LocalTime.now().format(
+                java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
 
         Transaction transaction = new Transaction(
                 date, time, description, vendor, amount);
@@ -97,14 +98,14 @@ public class Main {
     public static void makePayment(Scanner scanner, Ledger ledger){
 
         System.out.println("""
-    ███╗   ███╗  ██████╗
-    ████╗ ████║  ██╔══██╗
-    ██╔████╔██║  ██████╔╝
-    ██║╚██╔╝██║  ██╔═══╝
-    ██║ ╚═╝ ██║  ██║
-    ╚═╝     ╚═╝  ╚═╝
+         ███╗   ███╗  ██████╗
+         ████╗ ████║  ██╔══██╗
+         ██╔████╔██║  ██████╔╝
+         ██║╚██╔╝██║  ██╔═══╝
+         ██║ ╚═╝ ██║  ██║
+         ╚═╝     ╚═╝  ╚═╝
 
-        MAKE PAYMENT
+      M A K E    P A Y M E N T
     """);
 
         System.out.println("Enter Description:");
@@ -123,7 +124,8 @@ public class Main {
         amount = -amount;
         String date = java.time.LocalDate.now().toString();
 
-        String time = java.time.LocalTime.now().toString();
+        String time = java.time.LocalTime.now().format(
+                java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
 
         Transaction transaction = new Transaction(
                 date, time, description, vendor, amount);
@@ -137,14 +139,14 @@ public class Main {
         while (inLedger) {
 
             System.out.println("""
-██╗     ███╗   ███╗
-██║     ████╗ ████║
-██║     ██╔████╔██║
-██║     ██║╚██╔╝██║
-███████╗██║ ╚═╝ ██║
-╚══════╝╚═╝     ╚═╝
+    ██╗     ███╗   ███╗
+    ██║     ████╗ ████║
+    ██║     ██╔████╔██║
+    ██║     ██║╚██╔╝██║
+    ███████╗██║ ╚═╝ ██║
+    ╚══════╝╚═╝     ╚═╝
 
-      LEDGER MENU
+    L E D G E R   M E N U
 """);
             System.out.println("A) All Transactions");
             System.out.println("D) Deposits");
@@ -159,19 +161,63 @@ public class Main {
                 ledger.showAll();
 
             }else if (choice.equalsIgnoreCase("D")){
-                ledger.showPayments();
+                ledger.showDeposits();
 
             }else if (choice.equalsIgnoreCase("P")){
                 ledger.showPayments();
 
             }else if (choice.equalsIgnoreCase("R")){
-                System.out.println("Report coming soon!");
+                reportsMenu(scanner, ledger);
 
             }else if (choice.equalsIgnoreCase("H")){
                 inLedger = false;
 
             } else {
                 System.out.println("Invalid option.");
+            }
+
+        }
+    }
+    public static void reportsMenu(Scanner scanner, Ledger ledger){
+
+        boolean inReports = true;
+
+        while (inReports){
+
+            System.out.println("""
+         ██████╗ ███╗   ███╗
+         ██╔══██╗████╗ ████║
+         ██████╔╝██╔████╔██║
+         ██╔══██╗██║╚██╔╝██║
+         ██║  ██║██║ ╚═╝ ██║
+         ╚═╝  ╚═╝╚═╝     ╚═╝
+
+        R E P O R T S  M E N U
+    """);
+            System.out.println("1) Month To Date");
+            System.out.println("2) Previous Month");
+            System.out.println("3) Year to Date");
+            System.out.println("4) Previous Year");
+            System.out.println("5) Search by Vendor");
+            System.out.println("0) Back");
+
+            System.out.println("Choose an option: ");
+
+            String choice = scanner.nextLine();
+
+            if (choice.equals("5")){
+
+                System.out.println("Enter Vendor: ");
+                String vendor = scanner.nextLine();
+
+                ledger.showVendor(vendor);
+
+            }else if (choice.equals("0")){
+
+                inReports = false;
+
+            } else {
+                System.out.println("We will add this report next.");
             }
 
         }

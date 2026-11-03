@@ -9,7 +9,7 @@ import java.util.Collections;
 public class Ledger {
     private ArrayList<Transaction> loadTransactions = new ArrayList<>();
 
-    private String fileName = "transactions.csv";
+    private String fileName = "src/main/resources/transaction.csv";
 
     public Ledger() {
         loadTransactions();
@@ -32,6 +32,9 @@ public class Ledger {
             while((line = reader.readLine())!= null){
 
                 String[] parts = line.split("\\|");
+                if (parts[0].equals("Date")) {
+                    continue;
+                }
 
                 if (parts.length == 5){
 
@@ -79,19 +82,29 @@ public class Ledger {
         Collections.reverse(loadTransactions);
 
     }
-    public void showDeposits() {
-        for (int i = loadTransactions.size() - 1; i >= 0; i--){
 
-        Transaction transaction = loadTransactions.get(i);
+    public void showDeposits() {
+
+        System.out.println("\n===== DEPOSITS =====");
+
+        System.out.printf("%-12s %-12s %-22s %-18s %s%n",
+                "Date", "Time", "Description", "Vendor", "Amount");
+
+        for (int i = loadTransactions.size() - 1; i >= 0; i--) {
+
+            Transaction transaction = loadTransactions.get(i);
 
             if (transaction.getAmount() > 0) {
-
                 transaction.display();
 
             }
         }
     }
     public void showPayments(){
+
+        System.out.printf("%-12s %-12s %-22s %-18s %s%n",
+                "Date", "Time", "Description", "Vendor", "Amount");
+
         for (int i = loadTransactions.size() - 1; i >= 0; i--){
             Transaction transaction = loadTransactions.get(i);
 
@@ -102,12 +115,15 @@ public class Ledger {
     }
     public void showVendor(String vendor) {
 
+        System.out.println("\n===== Vendor Search =====");
+        System.out.printf("%-12s %-12s %-22s %-18s %s%n",
+                "Date", "Time", "Description", "Vendor", "Amount");
+
         for (int i = loadTransactions.size() - 1; i >= 0; i--){
 
             Transaction transaction = loadTransactions.get(i);
 
             if (transaction.getVendor().equalsIgnoreCase(vendor)){
-
                 transaction.display();
             }
         }
@@ -130,8 +146,13 @@ public class Ledger {
 
     public void showAll() {
 
-        System.out.println("\n===== All Transactions =====");
-        for (int i = loadTransactions.size() - 1; i>=0; i--) {
+        System.out.println("\n===== ALL TRANSACTIONS =====");
+
+        System.out.printf("%-12s %-12s %-22s %-18s %s%n",
+                "Date", "Time", "Description", "Vendor", "Amount");
+
+        for (int i = loadTransactions.size() - 1; i >= 0; i--) {
+
             Transaction transaction = loadTransactions.get(i);
 
             transaction.display();

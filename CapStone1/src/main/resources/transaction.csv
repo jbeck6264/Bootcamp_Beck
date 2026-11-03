@@ -1,12 +1,11 @@
-Date       | Time     | Description          | Vendor         | Amount
------------|----------|----------------------|----------------|-----------
-2026-10-01 | 09:00:00 | Initial Deposit      | Opening Balance| $1,500.00
-2026-10-02 | 09:00:00 | Paycheck Deposit     | Employer       | $1,200.00
-2026-10-03 | 10:00:00 | Grocery Payment      | Walmart        | -$85.50
-2026-10-04 | 11:00:00 | Gas Payment          | Shell          | -$45.00
-2026-10-05 | 12:00:00 | Electric Bill        | Duke Energy    | -$110.00
-2026-10-06 | 13:00:00 | Cash Deposit         | Bank           | $200.00
-2026-10-07 | 14:00:00 | Restaurant Payment   | McDonald's     | -$32.75
-2026-10-08 | 15:00:00 | Internet Bill        | Spectrum       | -$65.00
-2026-10-09 | 09:00:00 | Paycheck Deposit     | Employer       | $1,200.00
-2026-10-10 | 16:00:00 | Phone Bill           | Verizon        | -$75.00
+2026-10-01 | 08:00:00 | Day Trading Deposit  | Other Funds     | 2500.00
+2026-10-02 | 09:00:00 | Paycheck Deposit     | Employer Check  | 4200.00
+2026-10-03 | 10:00:00 | Grocery Payment      | Publix          | -185.50
+2026-10-04 | 11:00:00 | Gas Payment          | Shell           | -80.00
+2026-10-05 | 12:00:00 | Electric Bill        | Duke Energy     | -410.00
+2026-10-06 | 13:00:00 | Cash Deposit         | BofA            | 2800.00
+2026-10-07 | 14:00:00 | Restaurant Payment   | Nobu            | -360.75
+2026-10-08 | 15:00:00 | Internet Bill        | Google Fiber    | -165.00
+2026-10-09 | 09:00:00 | Paycheck Deposit     | Employer Check  | 3700.00
+2026-10-10 | 16:00:00 | Phone Bill           | T-Mobile        | -275.00
+
