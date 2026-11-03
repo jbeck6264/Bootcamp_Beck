@@ -6,6 +6,7 @@ import java.io.*;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 public class Ledger {
     private ArrayList<Transaction> loadTransactions = new ArrayList<>();
@@ -137,13 +138,20 @@ public class Ledger {
 
         System.out.println("\n===== Description Search =====");
 
+        boolean found = false;
+
         for (int i = loadTransactions.size() - 1; i >= 0; i--) {
 
             Transaction transaction = loadTransactions.get(i);
 
-            if (transaction.getDescription().toLowerCase()
-                    .contains(description.toLowerCase())) {
+            if (transaction.getDescription().toLowerCase().contains(description.toLowerCase())) {
+
+                transaction.display();
+                found = true;
             }
+        }
+        if (found == false){
+            System.out.println("Not matching transactions found.");
         }
     }
     public void showDataRange(String startDate, String endDate) {

@@ -176,6 +176,7 @@ public class Main {
 
             } else if (choice.equalsIgnoreCase("H")) {
                 inLedger = false;
+                System.out.println("Return to Homescreen Menu...");
 
             } else {
                 System.out.println("Invalid option.");
@@ -261,6 +262,7 @@ public class Main {
                 System.out.println("1) Search by Vendor");
                 System.out.println("2) Search by Description");
                 System.out.println("3) Search by Date");
+                System.out.println("0) Back");
 
                 System.out.print("Choose an option: ");
                 String searchChoice = scanner.nextLine();
@@ -285,13 +287,16 @@ public class Main {
 
                     ledger.showDataRange(date, date);
 
-                }else if (choice.equals("0")){
-                    inReports = false;
-
+                }  else if (searchChoice.equals("0")) {
+                    System.out.println("Returning to Reports Menu...");
                 } else {
                     System.out.println("Invalid option.");
                 }
 
+            }
+            else if (choice.equals("0")){
+                System.out.println("Returning to Ledger Menu...");
+                return;
             }
         }
     }
