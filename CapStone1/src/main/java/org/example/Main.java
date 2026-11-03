@@ -58,7 +58,7 @@ public class Main {
 
             } else if (choice.equalsIgnoreCase("X")) {
                 running = false;
-                System.out.println("Thank you for using our Financial Tracker, goodbye!");
+                System.out.println("Thank you for using my Financial Tracker, God bless!");
 
             } else {
                 System.out.println("Invalid option. Try again.");
