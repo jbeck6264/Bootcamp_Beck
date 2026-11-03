@@ -44,11 +44,11 @@ public class Main {
                 System.out.println("Make Payment selected.");
                 makePayment(scanner, ledger);
 
-            } else if (choice.equalsIgnoreCase("L")){
+            } else if (choice.equalsIgnoreCase("L")) {
                 System.out.println("Ledger selected. ");
                 ledgerMenu(scanner, ledger);
 
-            } else if (choice.equalsIgnoreCase("X")){
+            } else if (choice.equalsIgnoreCase("X")) {
                 running = false;
                 System.out.println("Thank you for using our Financial Tracker, goodbye!");
 
@@ -60,18 +60,19 @@ public class Main {
         }
         scanner.close();
     }
-    public static void addDeposit(Scanner scanner, Ledger ledger){
+
+    public static void addDeposit(Scanner scanner, Ledger ledger) {
 
         System.out.println("""
-          █████╗  ██████╗
-         ██╔══██╗ ██╔══██╗
-         ███████║ ██║  ██║
-         ██╔══██║ ██║  ██║
-         ██║  ██║ ██████╔╝
-         ╚═╝  ╚═╝ ╚═════╝
-      
-      A D D    D E P O S I T
-     """);
+                     █████╗  ██████╗
+                    ██╔══██╗ ██╔══██╗
+                    ███████║ ██║  ██║
+                    ██╔══██║ ██║  ██║
+                    ██║  ██║ ██████╔╝
+                    ╚═╝  ╚═╝ ╚═════╝
+                
+                 A D D    D E P O S I T
+                """);
         System.out.println("Enter Description: ");
         String description = scanner.nextLine();
 
@@ -96,18 +97,19 @@ public class Main {
         ledger.saveTransaction(transaction);
 
     }
-    public static void makePayment(Scanner scanner, Ledger ledger){
+
+    public static void makePayment(Scanner scanner, Ledger ledger) {
 
         System.out.println("""
-         ███╗   ███╗  ██████╗
-         ████╗ ████║  ██╔══██╗
-         ██╔████╔██║  ██████╔╝
-         ██║╚██╔╝██║  ██╔═══╝
-         ██║ ╚═╝ ██║  ██║
-         ╚═╝     ╚═╝  ╚═╝
-       
-       M A K E    P A Y M E N T
-    """);
+                     ███╗   ███╗  ██████╗
+                     ████╗ ████║  ██╔══██╗
+                     ██╔████╔██║  ██████╔╝
+                     ██║╚██╔╝██║  ██╔═══╝
+                     ██║ ╚═╝ ██║  ██║
+                     ╚═╝     ╚═╝  ╚═╝
+                
+                   M A K E    P A Y M E N T
+                """);
 
         System.out.println("Enter Description:");
         String description = scanner.nextLine();
@@ -118,7 +120,7 @@ public class Main {
         System.out.println("Enter Amount: ");
         double amount = Double.parseDouble(scanner.nextLine());
 
-        if(amount <= 0){
+        if (amount <= 0) {
             System.out.println("Payment must be greater than zero. ");
             return;
         }
@@ -133,6 +135,7 @@ public class Main {
 
         ledger.saveTransaction(transaction);
     }
+
     public static void ledgerMenu(Scanner scanner, Ledger ledger) {
 
         boolean inLedger = true;
@@ -140,15 +143,15 @@ public class Main {
         while (inLedger) {
 
             System.out.println("""
-    ██╗     ███╗   ███╗
-    ██║     ████╗ ████║
-    ██║     ██╔████╔██║
-    ██║     ██║╚██╔╝██║
-    ███████╗██║ ╚═╝ ██║
-    ╚══════╝╚═╝     ╚═╝
-
-    L E D G E R   M E N U
-""");
+                        ██╗     ███╗   ███╗
+                        ██║     ████╗ ████║
+                        ██║     ██╔████╔██║
+                        ██║     ██║╚██╔╝██║
+                        ███████╗██║ ╚═╝ ██║
+                        ╚══════╝╚═╝     ╚═╝
+                    
+                        L E D G E R   M E N U
+                    """);
             System.out.println("A) All Transactions");
             System.out.println("D) Deposits");
             System.out.println("P) Payments");
@@ -158,19 +161,19 @@ public class Main {
 
             String choice = scanner.nextLine();
 
-            if (choice.equalsIgnoreCase("A")){
+            if (choice.equalsIgnoreCase("A")) {
                 ledger.showAll();
 
-            }else if (choice.equalsIgnoreCase("D")){
+            } else if (choice.equalsIgnoreCase("D")) {
                 ledger.showDeposits();
 
-            }else if (choice.equalsIgnoreCase("P")){
+            } else if (choice.equalsIgnoreCase("P")) {
                 ledger.showPayments();
 
-            }else if (choice.equalsIgnoreCase("R")){
+            } else if (choice.equalsIgnoreCase("R")) {
                 reportsMenu(scanner, ledger);
 
-            }else if (choice.equalsIgnoreCase("H")){
+            } else if (choice.equalsIgnoreCase("H")) {
                 inLedger = false;
 
             } else {
@@ -179,22 +182,23 @@ public class Main {
 
         }
     }
-    public static void reportsMenu(Scanner scanner, Ledger ledger){
+
+    public static void reportsMenu(Scanner scanner, Ledger ledger) {
 
         boolean inReports = true;
 
-        while (inReports){
+        while (inReports) {
 
             System.out.println("""
-         ██████╗ ███╗   ███╗
-         ██╔══██╗████╗ ████║
-         ██████╔╝██╔████╔██║
-         ██╔══██╗██║╚██╔╝██║
-         ██║  ██║██║ ╚═╝ ██║
-         ╚═╝  ╚═╝╚═╝     ╚═╝
-
-        R E P O R T S  M E N U
-    """);
+                         ██████╗ ███╗   ███╗
+                         ██╔══██╗████╗ ████║
+                         ██████╔╝██╔████╔██║
+                         ██╔══██╗██║╚██╔╝██║
+                         ██║  ██║██║ ╚═╝ ██║
+                         ╚═╝  ╚═╝╚═╝     ╚═╝
+                    
+                        R E P O R T S  M E N U
+                    """);
             System.out.println("1) Month To Date");
             System.out.println("2) Previous Month");
             System.out.println("3) Year to Date");
@@ -206,7 +210,7 @@ public class Main {
 
             String choice = scanner.nextLine();
 
-            if(choice.equals("1")){
+            if (choice.equals("1")) {
                 String startDate = java.time.LocalDate.now()
                         .withDayOfMonth(1).toString();
 
@@ -215,7 +219,7 @@ public class Main {
                 System.out.println("\n===== Month To Date =====");
                 ledger.showDataRange(startDate, endDate);
 
-            } else if(choice.equals("2")){
+            } else if (choice.equals("2")) {
                 java.time.LocalDate previousMonth =
                         java.time.LocalDate.now().minusMonths(1);
 
@@ -228,7 +232,7 @@ public class Main {
 
                 ledger.showDataRange(startDate, endDate);
 
-            }else if(choice.equals("3")){
+            } else if (choice.equals("3")) {
 
                 String startDate = java.time.LocalDate.now()
                         .withDayOfYear(1).toString();
@@ -238,7 +242,7 @@ public class Main {
 
                 ledger.showDataRange(startDate, endDate);
 
-            }else if(choice.equals("4")) {
+            } else if (choice.equals("4")) {
 
                 java.time.LocalDate previousYear =
                         java.time.LocalDate.now().minusYears(1);
@@ -252,19 +256,39 @@ public class Main {
 
                 ledger.showDataRange(startDate, endDate);
 
-            } else if (choice.equals("5")){
+            } else if (choice.equals("5")) {
 
-                System.out.println("Custom search coming ");
-                String vendor = scanner.nextLine();
+                System.out.println("\n===== CUSTOM SEARCH =====");
+                System.out.println("1) Search by Vendor");
+                System.out.println("2) Search by Description");
+                System.out.println("3) Search by Date");
 
-                ledger.showVendor(vendor);
+                System.out.print("Choose an option: ");
+                String searchChoice = scanner.nextLine();
 
-            }else if (choice.equals("0")){
-                inReports = false;
-            } else {
-                System.out.println("Invalid option.");
+                if (searchChoice.equals("1")) {
+
+                    System.out.print("Enter Vendor: ");
+                    String vendor = scanner.nextLine();
+
+                    ledger.showVendor(vendor);
+
+                } else if (searchChoice.equals("2")) {
+
+                    System.out.print("Enter Description: ");
+                    String description = scanner.nextLine();
+
+                    ledger.showDescription(description);
+
+                } else if (choice.equals("3")) {
+                    System.out.println("Enter Date (YYYY-MM-DD): ");
+                   String date = scanner.nextLine();
+
+                } else {
+                    System.out.println("Invalid option.");
+                }
+
             }
-
         }
     }
 }

@@ -1,14 +1,24 @@
-2026-10-01 | 08:00:00 | Day Trading Deposit  | Other Funds     | 5500.00
-2026-10-02 | 09:00:00 | Paycheck Deposit     | Employer Check  | 4200.00
-2026-10-03 | 10:00:00 | Grocery Payment      | Publix          | -185.50
-2026-10-04 | 11:00:00 | Gas Payment          | Shell           | -140.00
-2026-10-05 | 12:00:00 | Electric Bill        | Duke Energy     | -410.00
-2026-10-06 | 13:00:00 | Cash Deposit         | BofA            | 2800.00
-2026-10-07 | 14:00:00 | Restaurant Payment   | Nobu            | -360.75
-2026-10-08 | 15:00:00 | Internet Bill        | Google Fiber    | -165.00
-2026-10-10 | 16:00:00 | Phone Bill           | T-Mobile        | -275.00
-2026-10-11 | 17:00:00 | Car Bill             | Mercedes/BMW    | -1800.00
-2026-10-12 | 18:00:00 | Gym Membership       | Lifetime Fitness| -400.00
+2026-10-01 | 8:00:00  | Day Trading Deposit  | Other Funds     | 5500.00
+2026-10-04 | 12:00:00 | Paycheck Deposit     | Employer Check  | 4200.00
+2026-10-07 | 7:00:00  | Grocery Payment      | Publix          | -185.50
+2026-10-08 | 15:00:00 | Gas Payment          | Shell           | -140.00
+2026-10-10 | 1:00:00  | Electric Bill        | Duke Energy     | -410.00
+2026-10-14 | 8:00:00  | Cash Deposit         | BofA            | 2800.00
+2026-10-15 | 9:00:00  | Restaurant Payment   | Nobu            | -360.75
+2026-10-19 | 4:00:00  | Internet Bill        | Google Fiber    | -165.00
+2026-10-25 | 18:00:00 | Phone Bill           | T-Mobile        | -275.00
+2026-10-31 | 17:00:00 | Car Bill             | Mercedes/BMW    | -1800.00
+2026-11-1  | 18:00:00 | Gym Membership       | Lifetime Fitness| -400.00
+2026-11-3  | 6:00:00  | Rent Payment         | Apartment       | -1850.00
+2026-11-5  | 13:00:00 | Vacation Payment     | Expedia         | -3200.00
+2026-11-7  | 1:00:00  | Paycheck Deposit     | Employer Check  | 4200.00
+2026-11-20 | 19:00:00 | Day Trading          | Broker          | 2800.00
+2026-11-15 | 9:00:00  | Designer Clothes     | Prada           | -1850.00
+2026-11-19 | 16:00:00 | Restaurant Payment   | Cheese Cake Fac.| -285.50
+2026-11-20 | 21:00:00 | Cash Deposit         | Bank of America | 2100.00
 
-2026-11-02|23:47:15|Stocks|Crypto |3477.00
-2026-11-02|23:47:45|Designer Clothes|Louis Vuitton|-2499.00
+
+
+
+2026-11-16|23:47:15|Stocks|Crypto |3477.00
+2026-11-4|23:47:45|Designer Clothes|Louis Vuitton|-2499.00

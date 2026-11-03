@@ -3,6 +3,7 @@ package org.example;
 import jdk.swing.interop.SwingInterOpUtils;
 
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -125,9 +126,25 @@ public class Ledger {
 
             if (transaction.getVendor().equalsIgnoreCase(vendor)){
                 transaction.display();
+
             }
+
         }
 
+
+    }
+    public void showDescription(String description) {
+
+        System.out.println("\n===== Description Search =====");
+
+        for (int i = loadTransactions.size() - 1; i >= 0; i--) {
+
+            Transaction transaction = loadTransactions.get(i);
+
+            if (transaction.getDescription().equalsIgnoreCase(description)) {
+                transaction.display();
+            }
+        }
     }
     public void showDataRange(String startDate, String endDate){
 
