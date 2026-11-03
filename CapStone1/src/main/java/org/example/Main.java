@@ -6,6 +6,14 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    public static final String RESET = "\u001B[0m";
+
+    public static final String CYAN = "\u001B[36m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String RED = "\u001B[31m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String PURPLE = "\u001B[35m";
+    public static final String UNDERLINE = "\u001B[4m";
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +24,7 @@ public class Main {
 
         while (running) {
 
-            System.out.println("=====================================================================");
+            System.out.println(CYAN + "=====================================================================");
             System.out.println("  ███████╗██╗███╗   ██╗ █████╗ ███╗   ██╗ ██████╗██╗ █████╗ ██╗");
             System.out.println("  ██╔════╝██║████╗  ██║██╔══██╗████╗  ██║██╔════╝██║██╔══██╗██║");
             System.out.println("  █████╗  ██║██╔██╗ ██║███████║██╔██╗ ██║██║     ██║███████║██║");
@@ -24,9 +32,9 @@ public class Main {
             System.out.println("  ██║     ██║██║ ╚████║██║  ██║██║ ╚████║╚██████╗██║██║  ██║███████╗");
             System.out.println("  ╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝╚═╝  ╚═╝╚══════╝");
             System.out.println();
-            System.out.println("                       F I N A N C I A L");
-            System.out.println("                         T R A C K E R");
-            System.out.println("====================================================================");
+            System.out.println(UNDERLINE + "                       F I N A N C I A L");
+            System.out.println(UNDERLINE + "                         T R A C K E R");
+            System.out.println("====================================================================" + RESET);
             System.out.println("D) Add Deposit");
             System.out.println("P) Make Payment");
             System.out.println("L) Ledger");
@@ -63,7 +71,7 @@ public class Main {
 
     public static void addDeposit(Scanner scanner, Ledger ledger) {
 
-        System.out.println("""
+        System.out.println(PURPLE + """
                      █████╗  ██████╗
                     ██╔══██╗ ██╔══██╗
                     ███████║ ██║  ██║
@@ -72,7 +80,7 @@ public class Main {
                     ╚═╝  ╚═╝ ╚═════╝
                 
                  A D D    D E P O S I T
-                """);
+                """ + RESET);
         System.out.println("Enter Description: ");
         String description = scanner.nextLine();
 
@@ -100,7 +108,7 @@ public class Main {
 
     public static void makePayment(Scanner scanner, Ledger ledger) {
 
-        System.out.println("""
+        System.out.println(GREEN + """
                      ███╗   ███╗  ██████╗
                      ████╗ ████║  ██╔══██╗
                      ██╔████╔██║  ██████╔╝
@@ -109,7 +117,8 @@ public class Main {
                      ╚═╝     ╚═╝  ╚═╝
                 
                    M A K E    P A Y M E N T
-                """);
+               
+                """ + RESET);
 
         System.out.println("Enter Description:");
         String description = scanner.nextLine();
@@ -142,7 +151,7 @@ public class Main {
 
         while (inLedger) {
 
-            System.out.println("""
+            System.out.println(YELLOW + """
                         ██╗     ███╗   ███╗
                         ██║     ████╗ ████║
                         ██║     ██╔████╔██║
@@ -151,7 +160,7 @@ public class Main {
                         ╚══════╝╚═╝     ╚═╝
                     
                         L E D G E R   M E N U
-                    """);
+                    """ + RESET);
             System.out.println("A) All Transactions");
             System.out.println("D) Deposits");
             System.out.println("P) Payments");
@@ -189,7 +198,7 @@ public class Main {
 
         while (inReports) {
 
-            System.out.println("""
+            System.out.println(RED + """
                          ██████╗ ███╗   ███╗
                          ██╔══██╗████╗ ████║
                          ██████╔╝██╔████╔██║
@@ -198,7 +207,7 @@ public class Main {
                          ╚═╝  ╚═╝╚═╝     ╚═╝
                     
                         R E P O R T S  M E N U
-                    """);
+                    """ + RESET);
             System.out.println("1) Month To Date");
             System.out.println("2) Previous Month");
             System.out.println("3) Year to Date");

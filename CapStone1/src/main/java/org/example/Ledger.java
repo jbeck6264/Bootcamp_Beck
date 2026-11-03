@@ -148,8 +148,6 @@ public class Ledger {
     }
     public void showDataRange(String startDate, String endDate){
 
-        System.out.println("\n===== Start/End Date Search =====");
-
         for (int i = loadTransactions.size() -1; i >= 0; i--){
 
             Transaction transaction = loadTransactions.get(i);
