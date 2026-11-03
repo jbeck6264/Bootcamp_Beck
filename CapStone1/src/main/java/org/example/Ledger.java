@@ -141,21 +141,22 @@ public class Ledger {
 
             Transaction transaction = loadTransactions.get(i);
 
-            if (transaction.getDescription().equalsIgnoreCase(description)) {
-                transaction.display();
+            if (transaction.getDescription().toLowerCase()
+                    .contains(description.toLowerCase())) {
             }
         }
     }
-    public void showDataRange(String startDate, String endDate){
+    public void showDataRange(String startDate, String endDate) {
 
-        for (int i = loadTransactions.size() -1; i >= 0; i--){
+        for (int i = loadTransactions.size() - 1; i >= 0; i--) {
 
             Transaction transaction = loadTransactions.get(i);
 
             String date = transaction.getDate();
 
-            if (date.compareTo(startDate) >= 0
-                && date.compareTo(endDate) <= 0) {
+            if (date.compareTo(startDate) >= 0 &&
+                    date.compareTo(endDate) <= 0) {
+
                 transaction.display();
             }
         }

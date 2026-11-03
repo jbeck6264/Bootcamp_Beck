@@ -6,8 +6,8 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static final String RESET = "\u001B[0m";
 
+    public static final String RESET = "\u001B[0m";
     public static final String CYAN = "\u001B[36m";
     public static final String GREEN = "\u001B[32m";
     public static final String RED = "\u001B[31m";
@@ -32,9 +32,9 @@ public class Main {
             System.out.println("  ██║     ██║██║ ╚████║██║  ██║██║ ╚████║╚██████╗██║██║  ██║███████╗");
             System.out.println("  ╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝╚═╝  ╚═╝╚══════╝");
             System.out.println();
-            System.out.println(UNDERLINE + "                       F I N A N C I A L");
-            System.out.println(UNDERLINE + "                         T R A C K E R");
-            System.out.println("====================================================================" + RESET);
+            System.out.println("                       "+UNDERLINE +"F I N A N C I A L"+RESET);
+            System.out.println(CYAN+"                         "+UNDERLINE + "T R A C K E R" +RESET);
+            System.out.println(CYAN+"====================================================================" + RESET);
             System.out.println("D) Add Deposit");
             System.out.println("P) Make Payment");
             System.out.println("L) Ledger");
@@ -71,16 +71,14 @@ public class Main {
 
     public static void addDeposit(Scanner scanner, Ledger ledger) {
 
-        System.out.println(PURPLE + """
-                     █████╗  ██████╗
-                    ██╔══██╗ ██╔══██╗
-                    ███████║ ██║  ██║
-                    ██╔══██║ ██║  ██║
-                    ██║  ██║ ██████╔╝
-                    ╚═╝  ╚═╝ ╚═════╝
-                
-                 A D D    D E P O S I T
-                """ + RESET);
+        System.out.println(PURPLE+" █████╗ ██████╗");
+        System.out.println("██╔══██╗██╔══██╗");
+        System.out.println("███████║██║  ██║");
+        System.out.println("██╔══██║██║  ██║");
+        System.out.println("██║  ██║██████╔╝");
+        System.out.println("╚═╝  ╚═╝╚═════╝"+RESET);
+        System.out.println();
+        System.out.println(PURPLE+UNDERLINE+"ADD DEPOSIT"+RESET);
         System.out.println("Enter Description: ");
         String description = scanner.nextLine();
 
@@ -108,18 +106,14 @@ public class Main {
 
     public static void makePayment(Scanner scanner, Ledger ledger) {
 
-        System.out.println(GREEN + """
-                     ███╗   ███╗  ██████╗
-                     ████╗ ████║  ██╔══██╗
-                     ██╔████╔██║  ██████╔╝
-                     ██║╚██╔╝██║  ██╔═══╝
-                     ██║ ╚═╝ ██║  ██║
-                     ╚═╝     ╚═╝  ╚═╝
-                
-                   M A K E    P A Y M E N T
-               
-                """ + RESET);
-
+        System.out.println(GREEN+"███╗   ███╗  ██████╗");
+        System.out.println("████╗ ████║  ██╔══██╗");
+        System.out.println("██╔████╔██║  ██████╔╝");
+        System.out.println("██║╚██╔╝██║  ██╔═══╝");
+        System.out.println("██║ ╚═╝ ██║  ██║");
+        System.out.println("╚═╝     ╚═╝  ╚═╝"+RESET);
+        System.out.println();
+        System.out.println(GREEN +UNDERLINE+"MAKE PAYMENT"+RESET);
         System.out.println("Enter Description:");
         String description = scanner.nextLine();
 
@@ -151,16 +145,14 @@ public class Main {
 
         while (inLedger) {
 
-            System.out.println(YELLOW + """
-                        ██╗     ███╗   ███╗
-                        ██║     ████╗ ████║
-                        ██║     ██╔████╔██║
-                        ██║     ██║╚██╔╝██║
-                        ███████╗██║ ╚═╝ ██║
-                        ╚══════╝╚═╝     ╚═╝
-                    
-                        L E D G E R   M E N U
-                    """ + RESET);
+            System.out.println(YELLOW+"██╗     ███╗   ███╗");
+            System.out.println("██║     ████╗ ████║");
+            System.out.println("██║     ██╔████╔██║");
+            System.out.println("██║     ██║╚██╔╝██║");
+            System.out.println("███████╗██║ ╚═╝ ██║");
+            System.out.println("╚══════╝╚═╝     ╚═╝"+RESET);
+            System.out.println();
+            System.out.println(YELLOW +UNDERLINE+"LEDGER MENU"+RESET);
             System.out.println("A) All Transactions");
             System.out.println("D) Deposits");
             System.out.println("P) Payments");
@@ -198,16 +190,14 @@ public class Main {
 
         while (inReports) {
 
-            System.out.println(RED + """
-                         ██████╗ ███╗   ███╗
-                         ██╔══██╗████╗ ████║
-                         ██████╔╝██╔████╔██║
-                         ██╔══██╗██║╚██╔╝██║
-                         ██║  ██║██║ ╚═╝ ██║
-                         ╚═╝  ╚═╝╚═╝     ╚═╝
-                    
-                        R E P O R T S  M E N U
-                    """ + RESET);
+            System.out.println(RED+"██████╗ ███╗   ███╗");
+            System.out.println("██╔══██╗████╗ ████║");
+            System.out.println("██████╔╝██╔████╔██║");
+            System.out.println("██╔══██╗██║╚██╔╝██║");
+            System.out.println("██║  ██║██║ ╚═╝ ██║");
+            System.out.println("╚═╝  ╚═╝╚═╝     ╚═╝"+RESET);
+            System.out.println();
+            System.out.println(RED +UNDERLINE+"REPORTS MENU"+RESET);
             System.out.println("1) Month To Date");
             System.out.println("2) Previous Month");
             System.out.println("3) Year to Date");
@@ -289,9 +279,14 @@ public class Main {
 
                     ledger.showDescription(description);
 
-                } else if (choice.equals("3")) {
+                } else if (searchChoice.equals("3")) {
                     System.out.println("Enter Date (YYYY-MM-DD): ");
-                   String date = scanner.nextLine();
+                    String date = scanner.nextLine();
+
+                    ledger.showDataRange(date, date);
+
+                }else if (choice.equals("0")){
+                    inReports = false;
 
                 } else {
                     System.out.println("Invalid option.");
