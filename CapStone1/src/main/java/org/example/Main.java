@@ -16,7 +16,7 @@ public class Main {
 
         while (running) {
 
-            System.out.println("============================================================");
+            System.out.println("=====================================================================");
             System.out.println("  ███████╗██╗███╗   ██╗ █████╗ ███╗   ██╗ ██████╗██╗ █████╗ ██╗");
             System.out.println("  ██╔════╝██║████╗  ██║██╔══██╗████╗  ██║██╔════╝██║██╔══██╗██║");
             System.out.println("  █████╗  ██║██╔██╗ ██║███████║██╔██╗ ██║██║     ██║███████║██║");
@@ -24,9 +24,9 @@ public class Main {
             System.out.println("  ██║     ██║██║ ╚████║██║  ██║██║ ╚████║╚██████╗██║██║  ██║███████╗");
             System.out.println("  ╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝╚═╝  ╚═╝╚══════╝");
             System.out.println();
-            System.out.println("                    F I N A N C I A L");
-            System.out.println("                       T R A C K E R");
-            System.out.println("============================================================");
+            System.out.println("                       F I N A N C I A L");
+            System.out.println("                         T R A C K E R");
+            System.out.println("====================================================================");
             System.out.println("D) Add Deposit");
             System.out.println("P) Make Payment");
             System.out.println("L) Ledger");
@@ -69,6 +69,7 @@ public class Main {
          ██╔══██║ ██║  ██║
          ██║  ██║ ██████╔╝
          ╚═╝  ╚═╝ ╚═════╝
+      
       A D D    D E P O S I T
      """);
         System.out.println("Enter Description: ");
@@ -104,8 +105,8 @@ public class Main {
          ██║╚██╔╝██║  ██╔═══╝
          ██║ ╚═╝ ██║  ██║
          ╚═╝     ╚═╝  ╚═╝
-
-      M A K E    P A Y M E N T
+       
+       M A K E    P A Y M E N T
     """);
 
         System.out.println("Enter Description:");
@@ -198,26 +199,70 @@ public class Main {
             System.out.println("2) Previous Month");
             System.out.println("3) Year to Date");
             System.out.println("4) Previous Year");
-            System.out.println("5) Search by Vendor");
+            System.out.println("5) Custom Search");
             System.out.println("0) Back");
 
             System.out.println("Choose an option: ");
 
             String choice = scanner.nextLine();
 
-            if (choice.equals("5")){
+            if(choice.equals("1")){
+                String startDate = java.time.LocalDate.now()
+                        .withDayOfMonth(1).toString();
 
-                System.out.println("Enter Vendor: ");
+                String endDate = java.time.LocalDate.now().toString();
+
+                System.out.println("\n===== Month To Date =====");
+                ledger.showDataRange(startDate, endDate);
+
+            } else if(choice.equals("2")){
+                java.time.LocalDate previousMonth =
+                        java.time.LocalDate.now().minusMonths(1);
+
+                String startDate = previousMonth.withDayOfMonth(1).toString();
+
+                String endDate = previousMonth.withDayOfMonth
+                        (previousMonth.lengthOfMonth()).toString();
+
+                System.out.println("\n===== Previous Month =====");
+
+                ledger.showDataRange(startDate, endDate);
+
+            }else if(choice.equals("3")){
+
+                String startDate = java.time.LocalDate.now()
+                        .withDayOfYear(1).toString();
+                String endDate = java.time.LocalDate.now().toString();
+
+                System.out.println("\n===== Year to Date =====");
+
+                ledger.showDataRange(startDate, endDate);
+
+            }else if(choice.equals("4")) {
+
+                java.time.LocalDate previousYear =
+                        java.time.LocalDate.now().minusYears(1);
+
+                String startDate = previousYear.withDayOfYear(1).toString();
+
+                String endDate = previousYear.withDayOfYear(
+                        previousYear.lengthOfYear()).toString();
+
+                System.out.println("===== PREVIOUS YEAR =====");
+
+                ledger.showDataRange(startDate, endDate);
+
+            } else if (choice.equals("5")){
+
+                System.out.println("Custom search coming ");
                 String vendor = scanner.nextLine();
 
                 ledger.showVendor(vendor);
 
             }else if (choice.equals("0")){
-
                 inReports = false;
-
             } else {
-                System.out.println("We will add this report next.");
+                System.out.println("Invalid option.");
             }
 
         }
