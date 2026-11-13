@@ -46,27 +46,27 @@ public class DealerShip {
         inventory.add(vehicle);
     }
 
-    public ArrayList<Vehicle>getAllVehicles(){
-        return inventory;
-    }
-
-    public ArrayList<Vehicle>getVehiclesByPrice(double min, double max){
+    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
         return null;
     }
 
-    public ArrayList<Vehicle>getVehicleMakeModel(String make, String model){
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
         return null;
     }
 
-    public ArrayList<Vehicle>getVehicleByYear(int min, int max){
+    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
         return null;
     }
 
-    public ArrayList<Vehicle> getInventory() {
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
         return null;
     }
 
-    public void removeVehicle(Vehicle vehicle){
+    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
+        return null;
+    }
 
+    public ArrayList<Vehicle> getVehiclesByType(String type) {
+        return null;
     }
 }
