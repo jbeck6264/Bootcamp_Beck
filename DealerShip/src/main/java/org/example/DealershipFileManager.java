@@ -3,17 +3,18 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 public class DealershipFileManager {
-    public Dealership getDealership(){
+    public Dealership getDealership() {
 
-        try{
+        try {
             BufferedReader reader = new BufferedReader
                 (new FileReader("src/main/resources/apex_hypercar_inventory.csv"));
 
             String firstLine = reader.readLine();
 
-            String[]dealershipsInfo = firstLine.split("\\|");
+            String[] dealershipsInfo = firstLine.split("\\|");
 
             String name = dealershipsInfo[0];
             String address = dealershipsInfo[1];
@@ -23,15 +24,15 @@ public class DealershipFileManager {
 
             String vehicleLine;
 
-            while((vehicleLine = reader.readLine()) !=null){
+            while ((vehicleLine = reader.readLine()) != null) {
                 String[] vehicleInfo = vehicleLine.split("\\|");
                 Vehicle vehicle = new Vehicle(Integer.parseInt(vehicleInfo[0]), Integer.parseInt(vehicleInfo[1]),
-                vehicleInfo[2],
-                vehicleInfo[3],
-                vehicleInfo[4],
-                vehicleInfo[5],
-                Integer.parseInt(vehicleInfo[6]),
-                Double.parseDouble(vehicleInfo[7]));
+                    vehicleInfo[2],
+                    vehicleInfo[3],
+                    vehicleInfo[4],
+                    vehicleInfo[5],
+                    Integer.parseInt(vehicleInfo[6]),
+                    new BigDecimal(vehicleInfo[7]));
 
                 dealership.addVehicle(vehicle);
             }
@@ -39,10 +40,14 @@ public class DealershipFileManager {
 
             return dealership;
 
-        }catch (IOException ex){
+        } catch (IOException ex) {
             System.out.println("Error reading dealership file.");
         }
         return null;
+
+    }
+
+    public void saveDealership(Dealership dealership) {
 
     }
 }

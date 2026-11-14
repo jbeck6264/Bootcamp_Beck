@@ -1,6 +1,9 @@
 package org.example;
 
-import java.util.ArrayList;
+
+import java.awt.*;
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -11,71 +14,244 @@ public class UserInterface {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public void display(){
+    public void display() {
         DealershipFileManager manager = new DealershipFileManager();
 
         Dealership dealership = manager.getDealership();
 
-        System.out.println(GOLD + "Welcome to " + dealership.getName()+ RESET);
+        System.out.println(GOLD + "Welcome to " + dealership.getName() + RESET);
         System.out.println("Total Vehicles: " +
             dealership.getAllVehicles().size());
         int choice = 0;
 
-        while(choice!= 99) {
+        while (choice != 99) {
 
             displayMenu();
 
             choice = scanner.nextInt();
 
+            scanner.nextLine();
+
             System.out.println();
 
-            if (choice == 99 ){
+            if (choice == 99) {
                 System.out.println(GOLD + "Thank you for visiting Apex One Motors!");
 
-            } else if (choice == 1 ) {
+            } else if (choice == 1) {
 
                 System.out.println("Enter Minimum price: $");
-                double min = scanner.nextDouble();
+                BigDecimal min = scanner.nextBigDecimal();
 
                 System.out.println("Enter maximum price: $");
-                double max = scanner.nextDouble();
+                BigDecimal max = scanner.nextBigDecimal();
 
-                ArrayList<Vehicle> results = dealership.getVehiclesByPrice(min, max);
+                List<Vehicle> results = dealership.getVehiclesByPrice(min, max);
 
-                if (results.isEmpty()){
-                    System.out.println("No vehicle foud in this price range.");
-                }
-                else{
+                if (results.isEmpty()) {
+                    System.out.println("No vehicle found in this price range.");
+                } else {
                     System.out.println(GOLD + "\n========== SEARCH RESULTS ==========" + RESET);
+                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %5s%n |",
+                        "VIN", "YEAR", "MAKE", "MODEL", "PRICE");
 
-                    for(Vehicle vehicle : results){
-                        System.out.printf("%d | %d | %s %s | $%,.2f%n",
+                    System.out.println("-------------------------------------------------------------------------------");
+
+                    for (Vehicle vehicle : results) {
+                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | %11s%n | ",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
-                            vehicle.getPrice());
+                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
                     }
                 }
+            } else if (choice == 2) {
+                System.out.println("Enter vehicle make: ");
+                String make = scanner.nextLine();
 
-            } else if (choice == 7){
-                System.out.println(GOLD + "\n========== Vehicle Inventory =========="+ RESET);
+                System.out.println("Enter vehicle model: ");
+                String model = scanner.nextLine();
 
-                for(Vehicle vehicle : dealership.getAllVehicles()){
-                    System.out.printf("%d | %d | %s %s | $%,.2f%n",
+                List<Vehicle> makeModelResults = dealership.getVehiclesByMakeModel(make, model);
+
+                if (makeModelResults.isEmpty()) {
+                    System.out.println("No Vehicle found.");
+
+                } else {
+                    System.out.println("\n========== SEARCH RESULTS ==========");
+                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %5s%n |",
+                        "VIN", "YEAR", "MAKE", "MODEL", "PRICE");
+
+                    System.out.println("--------------------------------------------------------------------------");
+
+                    for (Vehicle vehicle : makeModelResults) {
+                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | $%11s%n |",
+                            vehicle.getVin(),
+                            vehicle.getYear(),
+                            vehicle.getMake(),
+                            vehicle.getModel(),
+                            vehicle.getPrice(),
+                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+
+                    }
+
+                }
+            } else if (choice == 3) {
+                System.out.println("Enter starting year: ");
+                int minYear = scanner.nextInt();
+
+                System.out.println("Enter ending year: ");
+                int maxYear = scanner.nextInt();
+
+                List<Vehicle> yearResults = dealership.getVehiclesByYear(minYear, maxYear);
+
+                if (yearResults.isEmpty()) {
+                    System.out.println("No vehicles found in that year range.");
+
+                } else {
+
+                    System.out.println("\n========== SEARCH RESULTS ==========");
+
+                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %5s%n |",
+                        "VIN", "YEAR", "MAKE", "MODEL", "PRICE");
+
+                    System.out.println("-------------------------------------------------------------------------------");
+
+                    for (Vehicle vehicle : yearResults) {
+
+                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | $%11s%n |",
+                            vehicle.getVin(),
+                            vehicle.getYear(),
+                            vehicle.getMake(),
+                            vehicle.getModel(),
+                            vehicle.getPrice(),
+                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+                    }
+
+                }
+            } else if (choice == 4) {
+                System.out.println("Enter vehicle color: ");
+                String color = scanner.nextLine();
+
+                List<Vehicle> colorResults = dealership.getVehiclesByColor(color);
+
+                if (colorResults.isEmpty()) {
+                    System.out.println("No vehicles found with that color.");
+
+                } else {
+                    System.out.println("\n========== SEARCH RESULTS ==========");
+
+                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %-8s | %5s%n |",
+                        "VIN", "YEAR", "MAKE", "MODEL", "COLOR", "PRICE");
+
+                    System.out.println("--------------------------------------------------------------------------------");
+
+                    for (Vehicle vehicle : colorResults) {
+
+                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | %-8s | $%11s%n |",
+                            vehicle.getVin(),
+                            vehicle.getYear(),
+                            vehicle.getMake(),
+                            vehicle.getModel(),
+                            vehicle.getColor(),
+                            vehicle.getPrice(),
+                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+
+
+                    }
+                }
+            } else if (choice == 5) {
+                System.out.println("Enter minium mileage: ");
+                int minMileage = scanner.nextInt();
+
+                System.out.println("Enter maximum mileage: ");
+                int maxMileage = scanner.nextInt();
+
+                List<Vehicle> mileageResults = dealership.getVehiclesByMileage(minMileage, maxMileage);
+
+                if (mileageResults.isEmpty()) {
+                    System.out.println("No vehicles found int that mileage range.");
+
+                } else {
+                    System.out.println("\n========== SEARCH RESULTS ==========");
+
+                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %-8s | %5s%n |",
+                        "VIN", "YEAR", "MAKE", "MODEL", "ODOMETER", "PRICE");
+
+                    System.out.println("--------------------------------------------------------------------------------");
+
+                    for (Vehicle vehicle : mileageResults) {
+
+                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | %-8s | $%11s%n |",
+                            vehicle.getVin(),
+                            vehicle.getYear(),
+                            vehicle.getMake(),
+                            vehicle.getModel(),
+                            vehicle.getOdometer(),
+                            vehicle.getPrice(),
+                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+
+                    }
+                }
+            } else if (choice == 6) {
+                System.out.println("Enter vehicle type: ");
+                String type = scanner.nextLine();
+
+                List<Vehicle> typeResults = dealership.getVehiclesByType(type);
+
+                if (typeResults.isEmpty()) {
+                    System.out.println("No vehicles found in this type.");
+
+                } else {
+                    System.out.println("\n========== SEARCH RESULTS ==========");
+
+                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %-8s | %5s%n |",
+                        "VIN", "YEAR", "MAKE", "MODEL", "TYPE", "PRICE");
+
+                    System.out.println("--------------------------------------------------------------------------------");
+
+                    for (Vehicle vehicle : typeResults) {
+
+                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | %-8s | $%11s%n |",
+                            vehicle.getVin(),
+                            vehicle.getYear(),
+                            vehicle.getMake(),
+                            vehicle.getModel(),
+                            vehicle.getVehicleType(),
+                            vehicle.getPrice(),
+                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+
+
+                    }
+                }
+            } else if (choice == 7) {
+                System.out.println(GOLD + "\n========== Vehicle Inventory ==========" + RESET);
+                System.out.printf("| %-6s | %-4s | %-13s | %-25s | %-8s | %-12s | %-10s | %5s%n |",
+                    "VIN", "YEAR", "MAKE", "MODEL", "TYPE" ,"COLOR", "MILEAGE", "PRICE");
+
+                System.out.println("--------------------------------------------------------------------------------------------");
+
+
+                for (Vehicle vehicle : dealership.getAllVehicles()) {
+                    System.out.printf("| %-6d | %-4d | %-13s | %-25s | %-8s | %-12s | %-10s | $ %11s%n |",
+
                         vehicle.getVin(),
                         vehicle.getYear(),
                         vehicle.getMake(),
                         vehicle.getModel(),
-                        vehicle.getPrice());
+                        vehicle.getVehicleType(),
+                        vehicle.getColor(),
+                        vehicle.getOdometer(),
+                        vehicle.getPrice(),
+                        String.format("$%,.2f", vehicle.getPrice().doubleValue()));
                 }
-            }
-            else {
+            } else {
                 System.out.println("Option Selected: " + choice);
             }
         }
     }
-    public void displayMenu(){
+
+    private void displayMenu() {
         System.out.println(GOLD + "\n");
         System.out.println("       ✦ APEX ONE ✦");
         System.out.println("     L U X U R Y  M O T O R S");
@@ -102,3 +278,4 @@ public class UserInterface {
         System.out.print("  SELECT YOUR OPTION: ");
     }
 }
+
