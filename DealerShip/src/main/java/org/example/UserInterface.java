@@ -62,7 +62,7 @@ public class UserInterface {
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
-                            String.format("$%,.2fn", vehicle.getPrice().doubleValue()));
+                            String.format("%,.2f", vehicle.getPrice()));
                     }
                 }
             } else if (choice == 2) {
@@ -85,13 +85,12 @@ public class UserInterface {
                     System.out.println("--------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : makeModelResults) {
-                        System.out.printf("%-6d | %-4d | %-13s | %-25s | $%9s%n",
+                        System.out.printf("%-6d | %-4d | %-13s | %-25s | %15s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
-                            vehicle.getPrice(),
-                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f", vehicle.getPrice()));
 
                     }
 
@@ -119,13 +118,12 @@ public class UserInterface {
 
                     for (Vehicle vehicle : yearResults) {
 
-                        System.out.printf("%-6d | %-4d | %-13s | %-25s | $%9s%n",
+                        System.out.printf("%-6d | %-4d | %-13s | %-25s | %15s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
-                            vehicle.getPrice(),
-                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f", vehicle.getPrice()));
                     }
 
                 }
@@ -141,21 +139,20 @@ public class UserInterface {
                 } else {
                     System.out.println("\n========== SEARCH RESULTS ==========");
 
-                    System.out.printf("%-6s | %-4s | %-13s | %-25s | %-4s | %5s%n",
+                    System.out.printf("%-6s | %-4s | %-13s | %-18s | %-16s | %8s%n",
                         "VIN", "YEAR", "MAKE", "MODEL", "COLOR", "PRICE");
 
-                    System.out.println("----------------------------------------------------------------------------------");
+                    System.out.println("-----------------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : colorResults) {
 
-                        System.out.printf("%-6d | %-4d | %-13s | %-25s | %-4s | $%9s%n",
+                        System.out.printf("%-6d | %-4d | %-13s | %-18s | %-16s | %8s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
                             vehicle.getColor(),
-                            vehicle.getPrice(),
-                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f", vehicle.getPrice()));
 
 
                     }
@@ -175,21 +172,20 @@ public class UserInterface {
                 } else {
                     System.out.println("\n========== SEARCH RESULTS ==========");
 
-                    System.out.printf("%-6s | %-4s | %-13s | %-23s | %-8s | %5s%n",
+                    System.out.printf("%-6s | %-4s | %-13s | %-23s | %-8s | %9s%n",
                         "VIN", "YEAR", "MAKE", "MODEL", "ODOMETER", "PRICE");
 
-                    System.out.println("-----------------------------------------------------------------------------------");
+                    System.out.println("------------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : mileageResults) {
 
-                        System.out.printf("%-6d | %-4d | %-13s | %-23s | %-8s | $%9s%n",
+                        System.out.printf("%-6d | %-4d | %-13s | %-23s | %-8s | %9s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
                             vehicle.getOdometer(),
-                            vehicle.getPrice(),
-                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f", vehicle.getPrice()));
 
                     }
                 }
@@ -205,35 +201,34 @@ public class UserInterface {
                 } else {
                     System.out.println("\n========== SEARCH RESULTS ==========");
 
-                    System.out.printf("%-6s | %-4s | %-13s | %-24s | %-8s | %5s%n",
+                    System.out.printf("%-6s | %-4s | %-13s | %-24s | %-8s | %9s%n",
                         "VIN", "YEAR", "MAKE", "MODEL", "TYPE", "PRICE");
 
                     System.out.println("----------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : typeResults) {
 
-                        System.out.printf("%-6d | %-4d | %-13s | %-24s | %-8s | $%9s%n",
+                        System.out.printf("%-6d | %-4d | %-13s | %-24s | %-8s | %9s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
                             vehicle.getVehicleType(),
-                            vehicle.getPrice(),
-                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f", vehicle.getPrice()));
 
 
                     }
                 }
             } else if (choice == 7) {
                 System.out.println(GOLD + "\n========== Vehicle Inventory ==========" + RESET);
-                System.out.printf("%-7s| %-5s| %-14s| %-25s| %-5s| %-23s| %-10s | %14s%n",
+                System.out.printf("%-7s| %-5s| %-14s| %-25s| %-5s| %-25s| %-12s | %16s%n",
                     "VIN", "YEAR", "MAKE", "MODEL", "TYPE", "COLOR", "MILEAGE", "PRICE");
 
                 System.out.println("----------------------------------------------------------------------------------------------------------------------------");
 
 
                 for (Vehicle vehicle : dealership.getAllVehicles()) {
-                    System.out.printf("%-7d| %-5d| %-14s| %-25s| %-5s| %-25s | %-10d | $%13s%n",
+                    System.out.printf("%-7d| %-5d| %-14s| %-25s| %-5s| %-25s | %-12d | %16s%n",
                         vehicle.getVin(),
                         vehicle.getYear(),
                         vehicle.getMake(),
@@ -241,8 +236,7 @@ public class UserInterface {
                         vehicle.getVehicleType(),
                         vehicle.getColor(),
                         vehicle.getOdometer(),
-                        vehicle.getPrice(),
-                        String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
+                        String.format("$%,.2f", vehicle.getPrice()));
                 }
             } else if (choice == 8) {
 
