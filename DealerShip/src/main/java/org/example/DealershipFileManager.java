@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 public class DealershipFileManager {
     public Dealership getDealership() {
@@ -48,6 +50,39 @@ public class DealershipFileManager {
     }
 
     public void saveDealership(Dealership dealership) {
+        try {
+            BufferedWriter writer = new BufferedWriter(
+                new FileWriter("src/main/resources/apex_hypercar_inventory.csv"));
 
+            // Save dealership information
+            writer.write(dealership.getName() + "|" +
+                dealership.getAddress() + "|" +
+                dealership.getPhoneNumber());
+
+            writer.newLine();
+
+            // Save all vehicles
+            for (Vehicle vehicle : dealership.getAllVehicles()) {
+
+                writer.write(
+                    vehicle.getVin() + "|" +
+                        vehicle.getYear() + "|" +
+                        vehicle.getMake() + "|" +
+                        vehicle.getModel() + "|" +
+                        vehicle.getVehicleType() + "|" +
+                        vehicle.getColor() + "|" +
+                        vehicle.getOdometer() + "|" +
+                        vehicle.getPrice().toPlainString()
+                );
+
+                writer.newLine();
+            }
+
+            writer.close();
+
+        } catch (IOException ex) {
+            System.out.println("Error saving dealership file.");
+
+        }
     }
 }

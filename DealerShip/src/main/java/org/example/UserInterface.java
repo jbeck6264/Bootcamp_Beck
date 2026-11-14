@@ -51,18 +51,18 @@ public class UserInterface {
                     System.out.println("No vehicle found in this price range.");
                 } else {
                     System.out.println(GOLD + "\n========== SEARCH RESULTS ==========" + RESET);
-                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %5s%n |",
+                    System.out.printf("%-6s | %-4s | %-13s | %-25s | %5s%n",
                         "VIN", "YEAR", "MAKE", "MODEL", "PRICE");
 
-                    System.out.println("-------------------------------------------------------------------------------");
+                    System.out.println("-----------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : results) {
-                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | %11s%n | ",
+                        System.out.printf("%-6d | %-4d | %-13s | %-25s | $%9s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
-                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2fn", vehicle.getPrice().doubleValue()));
                     }
                 }
             } else if (choice == 2) {
@@ -79,19 +79,19 @@ public class UserInterface {
 
                 } else {
                     System.out.println("\n========== SEARCH RESULTS ==========");
-                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %5s%n |",
+                    System.out.printf("%-6s | %-4s | %-13s | %-25s | %5s%n",
                         "VIN", "YEAR", "MAKE", "MODEL", "PRICE");
 
-                    System.out.println("--------------------------------------------------------------------------");
+                    System.out.println("--------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : makeModelResults) {
-                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | $%11s%n |",
+                        System.out.printf("%-6d | %-4d | %-13s | %-25s | $%9s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
                             vehicle.getPrice(),
-                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
 
                     }
 
@@ -112,20 +112,20 @@ public class UserInterface {
 
                     System.out.println("\n========== SEARCH RESULTS ==========");
 
-                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %5s%n |",
+                    System.out.printf("%-6s | %-4s | %-13s | %-25s | %5s%n",
                         "VIN", "YEAR", "MAKE", "MODEL", "PRICE");
 
-                    System.out.println("-------------------------------------------------------------------------------");
+                    System.out.println("--------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : yearResults) {
 
-                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | $%11s%n |",
+                        System.out.printf("%-6d | %-4d | %-13s | %-25s | $%9s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
                             vehicle.getPrice(),
-                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
                     }
 
                 }
@@ -141,21 +141,21 @@ public class UserInterface {
                 } else {
                     System.out.println("\n========== SEARCH RESULTS ==========");
 
-                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %-8s | %5s%n |",
+                    System.out.printf("%-6s | %-4s | %-13s | %-25s | %-4s | %5s%n",
                         "VIN", "YEAR", "MAKE", "MODEL", "COLOR", "PRICE");
 
-                    System.out.println("--------------------------------------------------------------------------------");
+                    System.out.println("----------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : colorResults) {
 
-                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | %-8s | $%11s%n |",
+                        System.out.printf("%-6d | %-4d | %-13s | %-25s | %-4s | $%9s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
                             vehicle.getColor(),
                             vehicle.getPrice(),
-                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
 
 
                     }
@@ -175,21 +175,21 @@ public class UserInterface {
                 } else {
                     System.out.println("\n========== SEARCH RESULTS ==========");
 
-                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %-8s | %5s%n |",
+                    System.out.printf("%-6s | %-4s | %-13s | %-23s | %-8s | %5s%n",
                         "VIN", "YEAR", "MAKE", "MODEL", "ODOMETER", "PRICE");
 
-                    System.out.println("--------------------------------------------------------------------------------");
+                    System.out.println("-----------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : mileageResults) {
 
-                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | %-8s | $%11s%n |",
+                        System.out.printf("%-6d | %-4d | %-13s | %-23s | %-8s | $%9s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
                             vehicle.getOdometer(),
                             vehicle.getPrice(),
-                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
 
                     }
                 }
@@ -205,36 +205,35 @@ public class UserInterface {
                 } else {
                     System.out.println("\n========== SEARCH RESULTS ==========");
 
-                    System.out.printf("| %-6s | %-4s | %-13s | %-25s | %-8s | %5s%n |",
+                    System.out.printf("%-6s | %-4s | %-13s | %-24s | %-8s | %5s%n",
                         "VIN", "YEAR", "MAKE", "MODEL", "TYPE", "PRICE");
 
-                    System.out.println("--------------------------------------------------------------------------------");
+                    System.out.println("----------------------------------------------------------------------------------");
 
                     for (Vehicle vehicle : typeResults) {
 
-                        System.out.printf("| %-6d | %-4d | %-13s | %-25s | %-8s | $%11s%n |",
+                        System.out.printf("%-6d | %-4d | %-13s | %-24s | %-8s | $%9s%n",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
                             vehicle.getModel(),
                             vehicle.getVehicleType(),
                             vehicle.getPrice(),
-                            String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+                            String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
 
 
                     }
                 }
             } else if (choice == 7) {
                 System.out.println(GOLD + "\n========== Vehicle Inventory ==========" + RESET);
-                System.out.printf("| %-6s | %-4s | %-13s | %-25s | %-8s | %-12s | %-10s | %5s%n |",
-                    "VIN", "YEAR", "MAKE", "MODEL", "TYPE" ,"COLOR", "MILEAGE", "PRICE");
+                System.out.printf("%-7s| %-5s| %-14s| %-25s| %-5s| %-23s| %-10s | %14s%n",
+                    "VIN", "YEAR", "MAKE", "MODEL", "TYPE", "COLOR", "MILEAGE", "PRICE");
 
-                System.out.println("--------------------------------------------------------------------------------------------");
+                System.out.println("----------------------------------------------------------------------------------------------------------------------------");
 
 
                 for (Vehicle vehicle : dealership.getAllVehicles()) {
-                    System.out.printf("| %-6d | %-4d | %-13s | %-25s | %-8s | %-12s | %-10s | $ %11s%n |",
-
+                    System.out.printf("%-7d| %-5d| %-14s| %-25s| %-5s| %-25s | %-10d | $%13s%n",
                         vehicle.getVin(),
                         vehicle.getYear(),
                         vehicle.getMake(),
@@ -243,7 +242,70 @@ public class UserInterface {
                         vehicle.getColor(),
                         vehicle.getOdometer(),
                         vehicle.getPrice(),
-                        String.format("$%,.2f", vehicle.getPrice().doubleValue()));
+                        String.format("$%,.2f%n", vehicle.getPrice().doubleValue()));
+                }
+            } else if (choice == 8) {
+
+                System.out.println(GOLD + "\n======= ADD NEW VEHICLE =======" + RESET);
+
+                System.out.print("Enter VIN: ");
+                int vin = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("Enter year: ");
+                int year = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("Enter make: ");
+                String make = scanner.nextLine();
+
+                System.out.print("Enter model: ");
+                String model = scanner.nextLine();
+
+                System.out.print("Enter vehicle type: ");
+                String vehicleType = scanner.nextLine();
+
+                System.out.print("Enter color: ");
+                String color = scanner.nextLine();
+
+                System.out.print("Enter mileage: ");
+                int odometer = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("Enter price: $");
+                BigDecimal price = scanner.nextBigDecimal().setScale(2);
+
+                Vehicle vehicle = new Vehicle(
+                    vin, year, make, model, vehicleType,
+                    color, odometer, price);
+
+                dealership.addVehicle(vehicle);
+                manager.saveDealership(dealership);
+
+                System.out.println(GOLD + "Vehicle successfully added!" + RESET);
+
+            } else if (choice == 9) {
+                System.out.println(GOLD + "\n======= REMOVE VEHICLE =======" + RESET);
+
+                System.out.print("Enter VIN of vehicle to remove: ");
+                int vin = scanner.nextInt();
+                scanner.nextLine();
+
+                Vehicle vehicleToRemove = null;
+
+                for (Vehicle vehicle : dealership.getAllVehicles()) {
+                    if (vehicle.getVin() == vin) {
+                        vehicleToRemove = vehicle;
+                    }
+                }
+
+                if (vehicleToRemove != null) {
+                    dealership.removeVehicle(vehicleToRemove);
+                    manager.saveDealership(dealership);
+                    System.out.println(GOLD + "Vehicle successfully removed!" + RESET);
+
+                } else {
+                    System.out.println("Vehicle not found.");
                 }
             } else {
                 System.out.println("Option Selected: " + choice);
