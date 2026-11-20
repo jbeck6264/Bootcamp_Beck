@@ -332,7 +332,7 @@ public class UserInterface {
                     System.out.print("Enter customer email: ");
                     String customerEmail = scanner.nextLine();
 
-                    System.out.println("\n1. Purchase Vehicle");
+                    System.out.println("\n1. Sell Vehicle");
                     System.out.println("2. Lease Vehicle");
 
                     System.out.print("Select an option: ");
@@ -351,7 +351,7 @@ public class UserInterface {
 
                         contract = new SalesContract(contractDate, customerName, customerEmail, selectedVehicle, financeOption);
 
-                    } else if ( choice == 2 ) {
+                    } else if ( contractChoice == 2 ) {
 
                         int vehicleAge = java.time.LocalDate.now().getYear() - selectedVehicle.getYear();
 
