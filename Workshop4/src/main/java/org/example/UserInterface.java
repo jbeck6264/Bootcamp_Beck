@@ -368,6 +368,28 @@ public class UserInterface {
                     } else{
                         System.out.println("Invalid contract option.");
                     }
+                    if (contract != null) {
+
+                        ContractDataManager contractManager = new ContractDataManager();
+                        contractManager.saveContract(contract);
+
+                        System.out.println("\n========== CONTRACT RECEIPT ==========");
+
+                        System.out.println("Customer: " + contract.getCustomerName());
+                        System.out.println("Email: " + contract.getCustomerEmail());
+
+                        System.out.println("Vehicle: " + contract.getVehicleSold().getYear()
+                            + " " + contract.getVehicleSold().getMake()
+                            + " " + contract.getVehicleSold().getModel());
+
+                        System.out.println("Total Price: $" +
+                            String.format("%,.2f", contract.getTotalPrice()));
+
+                        System.out.println("Monthly Payment: $" +
+                            String.format("%,.2f", contract.getMonthlyPayment()));
+
+                        System.out.println("======================================");
+                    }
 
                 }
             } else {
@@ -395,6 +417,7 @@ public class UserInterface {
         System.out.println("  07  ›  View All Vehicles");
         System.out.println("  08  ›  Add New Vehicle");
         System.out.println("  09  ›  Remove Vehicle");
+        System.out.println("  10  ›  Selling and Leasing Vehicle ");
 
         System.out.println(GOLD + "--------------------------------------");
         System.out.println("  99  ›  EXIT APPLICATION");
