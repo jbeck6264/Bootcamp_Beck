@@ -301,6 +301,75 @@ public class UserInterface {
                 } else {
                     System.out.println("Vehicle not found.");
                 }
+            } else if ( choice == 10) {
+                System.out.println(GOLD + "\n======= SELL / LEASE A VEHICLE =======" + RESET);
+
+                System.out.println("Enter vehicle VIN: ");
+                int vin = scanner.nextInt();
+                scanner.nextLine();
+
+                Vehicle selectedVehicle = null;
+
+                //Search dealership inventory for the VIN
+                for(Vehicle vehicle : dealership.getAllVehicles()){
+                    if(vehicle.getVin() == vin) {
+                        selectedVehicle = vehicle;
+                        break;
+                    }
+                }
+                if (selectedVehicle == null){
+                    System.out.println("Vehicle not found.");
+
+                } else {
+                    System.out.println("\nVehicle Selected:");
+                    System.out.println(selectedVehicle.getYear() + " " + selectedVehicle.getMake() + " " + selectedVehicle.getModel());
+
+                    System.out.println("Price: $" + String.format("%,.2f",selectedVehicle.getPrice()));
+
+                    System.out.print("\nEnter customer name: ");
+                    String customerName = scanner.nextLine();
+
+                    System.out.print("Enter customer email: ");
+                    String customerEmail = scanner.nextLine();
+
+                    System.out.println("\n1. Purchase Vehicle");
+                    System.out.println("2. Lease Vehicle");
+
+                    System.out.print("Select an option: ");
+                    int contractChoice = scanner.nextInt();
+                    scanner.nextLine();
+
+                    String contractDate = java.time.LocalDate.now().toString();
+
+                    Contract contract = null;
+                    if (contractChoice == 1){
+
+                        System.out.println("Would you like to finance? (yes/no): ");
+                        String financeAnswer = scanner.nextLine();
+
+                        boolean financeOption = financeAnswer.equalsIgnoreCase("yes");
+
+                        contract = new SalesContract(contractDate, customerName, customerEmail, selectedVehicle, financeOption);
+
+                    } else if ( choice == 2 ) {
+
+                        int vehicleAge = java.time.LocalDate.now().getYear() - selectedVehicle.getYear();
+
+                        if(vehicleAge > 3 ) {
+
+                            System.out.println("Sorry, this vehicle too old to lease.");
+
+                        } else {
+
+                            contract = new LeaseContract(contractDate, customerName, customerEmail, selectedVehicle);
+
+                        }
+
+                    } else{
+                        System.out.println("Invalid contract option.");
+                    }
+
+                }
             } else {
                 System.out.println("Option Selected: " + choice);
             }
